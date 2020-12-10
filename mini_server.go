@@ -1,13 +1,14 @@
 package main
 
 import (
+	"log"
 	"net/http"
 )
 
 func main() {
 	http.HandleFunc("/", homeHandler)
 	http.HandleFunc("/about", aboutHandler)
-	http.ListenAndServe(":3000", nil)
+	log.Fatal(http.ListenAndServe(":3000", nil))
 }
 
 func homeHandler(w http.ResponseWriter, r *http.Request) {
